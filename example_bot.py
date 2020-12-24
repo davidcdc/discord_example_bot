@@ -1,4 +1,5 @@
 import discord
+from token import *
 
 client = discord.Client()
 
@@ -11,7 +12,8 @@ async def on_message(message):
     if message.author == client.user:
         return
 
-    if message.content.startswith('$hello world'):
-        await message.channel.send('Hello world!')
+    if message.content.startswith('$hello bot'):
+        await message.channel.send('Hello user!')
 
-client.run('your token here')
+
+client.run(token)
