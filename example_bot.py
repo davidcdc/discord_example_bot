@@ -1,7 +1,10 @@
 import discord
-from token import *
+import pendulum
+from discord_token import *
 
 client = discord.Client()
+
+now = pendulum.now()
 
 @client.event
 async def on_ready():
@@ -15,5 +18,7 @@ async def on_message(message):
     if message.content.startswith('$hello bot'):
         await message.channel.send('Hello user!')
 
+    if message.content.startswith('$time'):
+        await message.channel.send(now)
 
 client.run(token)
